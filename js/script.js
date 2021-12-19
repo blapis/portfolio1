@@ -209,17 +209,29 @@ $(document).ready(function () {
 
   /* netflix */
   var current_index = 0;
+  var dup_prev=0;
   $(".slider_img_wrap:first-child").siblings().hide();
 
   $(".slider_img_wrap").click(function () {
+    
+
+    if(dup_prev==1){
+      return 0;
+    }
+
     var img_index = $(".slider_img_wrap").length;
     current_index += 1;
     if (img_index == current_index) {
       current_index = 0;
     }
-    $(this).fadeOut();
-    $(".slider_img_wrap").eq(current_index).fadeIn();
-    console.log($(this).html());
+    $(this).fadeOut(400);
+    $(".slider_img_wrap").eq(current_index).fadeIn(400);
+    
+    
+    setTimeout(function(){
+      dup_prev=0;
+    },400);
+    dup_prev=1;
   });
 
 
