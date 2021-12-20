@@ -9,10 +9,16 @@
     <script src="./js/jquery.smooth-scroll.js"></script>
     <script src="./js/easing.js"></script>
     <script src="./js/swiper.js"></script>
+    <script src="./js/jquery.fullPage.js"></script>
+    <script src="./js/slick.js"></script>
+    <script src="./js/wow.min.js"></script>
     <script src="./js/script.js"></script>
+    <link rel="stylesheet" href="./css/fullpage.min.css">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/swiper.min.css">
+    <link rel="stylesheet" href="./css/slick.css">
+    <link rel="stylesheet" href="./css/animate.css">
     <!-- font-awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 </head>
@@ -21,39 +27,39 @@
     <div class="wrap">
         <section class="intro" id="intro">
             <div class="intro__iconBoxWrap">
-                <div class="intro__iconBox memo_icon">
-                    <img class="intro__icon" src="./images/Samsung-icon.png" alt="samsung icon">
-                    <div class="intro__iconName">삼성</div>
+                <div class="intro__iconBox">
+                    <img class="intro__icon" src="./images/app-store.png" alt="samsung icon">
+                    <div class="intro__iconName">App store</div>
                 </div>
                 <div class="intro__iconBox netflix_icon">
-                    <div class="intro__icon iconFolder">
-
-                    </div>
-                    <div class="intro__iconName">했던 일</div>
+                    <img class="intro__icon" src="./images/netflix.png" alt="samsung icon">
+                    <div class="intro__iconName">Netflix</div>
+                </div>
+                <div class="intro__iconBox working_icon">
+                    <img class="intro__icon" src="./images/safari.png" alt="samsung icon">
+                    <div class="intro__iconName">Safari</div>
                 </div>
                 <div class="intro__iconBox">
-                    <div class="intro__icon iconFolder"></div>
-                    <div class="intro__iconName">했던 일</div>
+                    <img class="intro__icon" src="./images/kakao-talk.png" alt="samsung icon">
+                    <div class="intro__iconName">카카오톡</div>
                 </div>
                 <div class="intro__iconBox">
-                    <div class="intro__icon iconFolder"></div>
-                    <div class="intro__iconName">했던 일</div>
+                    <img class="intro__icon" src="./images/settings.png" alt="samsung icon">
+                    <div class="intro__iconName">설정</div>
                 </div>
                 <div class="intro__iconBox">
-                    <div class="intro__icon iconFolder"></div>
-                    <div class="intro__iconName">했던 일</div>
+                    <img class="intro__icon" src="./images/phone-call.png" alt="samsung icon">
+                    <div class="intro__iconName">전화</div>
                 </div>
-                <div class="intro__iconBox"></div>
-                <div class="intro__iconBox"></div>
-                <div class="intro__iconBox"></div>
-                <div class="intro__iconBox"></div>
+                
+                
             </div>
             <div class="intro_bottom">
 
             </div>
         </section>
 
-        <section class="memo clfix" id="memo">
+        <section class="memo app white clfix" id="memo">
             <div class="gnb_wrap">
                 <div class="tab_header">배운 점</div>
                 <ul class="tab_menuWrap">
@@ -94,7 +100,7 @@
             <ul class="contents_wrap">
                 <li class="contents_item open_tab">
                     <div class="contents_item_imgWrap">
-                        <img src="./images/kiosk_img.PNG" alt="코드 관리 방식 img">
+                        <img src="./images/kiosk_img2.png" alt="코드 관리 방식 img">
                     </div>
                 </li>
                 <li class="contents_item">contents2</li>
@@ -103,27 +109,113 @@
                 <li class="contents_item">contents5</li>
             </ul>
         </section>
-        <section class="netflix">
-            <div class="netflix_header clfix">
-                <div class="logoWrap"><img src="./images/logo_transparent.png" alt="my_icon"></div>
-                <ul class="gnb_wrap clfix vc_c">
-                    <li class="gnb_item">졸업작품</li>
-                    <li class="gnb_item">계기</li>
-                    <li class="gnb_item">이지민은</li>
-                </ul>
-            </div>
+        <section class="netflix dark app">
             <ul class="slider_wrap">
-                <li class="slider_img_wrap"><img src="./images/introduce.jpg" alt="introduce img1"></li>
+                <li class="slider_img_wrap"><img src="./images/kiosk_img2.png" alt="introduce img1"></li>
                 <li class="slider_img_wrap"><img src="./images/leo1.jpg" alt="introduce img2"></li>
-                <li class="slider_img_wrap"><img src="./images/leo2.jpg" alt="introduce img3"></li>
+                <li class="slider_img_wrap"><img src="./images/introduce.jpg" alt="introduce img3"></li>
             </ul>
-            <div class="desc">졸업작품?</div>
+            <div class="desc">졸업작품</div>
         </section>
-        <!--<section class="future">
+        <section class="working fullpage" id="container">
+            <article class="workingWrap working_samsungWrap">
+                <h3 class="article_header">삼성헬스케어</h3>
+                <div class="slick_wrap">
+                    <div class="slick_item">
+                        <img src="../portfolio1/images/leo1.jpg" alt="작업물1">
+                    </div>
+                    <div class="slick_item">
+                        
+                    </div>
+                    <div class="slick_item">
+                        
+                    </div>
+                    <div class="slick_item">
+                        
+                    </div>
+                    <div class="slick_item">
 
-        </section> -->
+                    </div>
+                </div>
+            </article>
+
+            <article class="workingWrap working_hdWrap">
+                <h3 class="article_header">현대백화점</h3>
+                <div class="article_wrap">
+                    <div class="article_item">
+
+                    </div>
+                    <div class="article_item">
+                        
+                    </div>
+
+                </div>
+            </article>
+
+            <article class="workingWrap working_pentaWrap">
+                <h3 class="article_header">펜타프리즘 / 샤우트</h3>
+                <div class="article_wrap">
+                    <div class="article_item">
+                        
+                    </div>
+
+                </div>
+            </article>
+
+
+        </section>
+        <section class="future">
+            <div class="future_wrap clfix">
+                <div class="future_timeWrap">
+                    <div class="time"><span class="hour"></span> : <span class="minute"></span></div>
+                    <div class="date"><span class="month"></span>월 <span class="day"></span>일 <span class="week"></span>요일
+                    </div>
+                    
+                </div>
+                <div class="future_contentsWrap">
+                    <div class="future_headerWrap clfix">
+                        <h3>계획</h3><div class="button_x">x</div>
+                    </div>
+                    
+                    <div class="future_slider_wrap">
+                        <div class="future_item_wrap clfix">
+                            <div class="future_item_img">
+                                <img src="./images/leo1.jpg" alt="">
+                            </div>
+                            <div class="future_item_text">css, 스크립트의 기본을 탄탄히 쌓기</div>
+                        </div>
+                            
+                        <div class="future_item_wrap clfix">
+                            <div class="future_item_img">
+                                <img src="./images/leo1.jpg" alt="">
+                            </div>
+                            <div class="future_item_text">다양한 인터랙션을 구현하기 위하여 다양한 플러그인 경험 / 학습</div>
+                        </div>
+
+                        <div class="future_item_wrap clfix">
+                            <div class="future_item_img">
+                                <img src="./images/leo1.jpg" alt="">
+                            </div>
+                            <div class="future_item_text">개발자들과의 원활한 소통과 저 자신의 목표인 웹 개발을 위하여,<br>
+                                스터디를 통해 jsp, react, vue.js 등을 학습할 예정</div>
+                        </div>
+
+                        <div class="future_item_wrap clfix">
+                            <div class="future_item_img">
+                                <img src="./images/leo1.jpg" alt="">
+                            </div>
+                            <div class="future_item_text">BEM 등, 협업을 위한 다양한 코딩 기법을 학습할 예정입니다</div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="future_handle">
+
+            </div>
+        </section>
     </div>
-    <header class="header">
+    <header class="header clfix">
         <div class="header_item">iPad &nbsp;<i class="fas fa-wifi"></i>&nbsp;&nbsp;&nbsp;<span
                 class="ampm"></span>&nbsp;<span class="hour"></span> : <span class="minute"></span></div>
         <div class="header_battery"><span class="battery_percent"></span>% &nbsp;
@@ -142,7 +234,7 @@
 
 
     <div class="dragWrap">
-        <div class="draggable">
+        <div class="draggable_screen">
             <div class="dateWrap">
                 <div class="time"><span class="hour"></span> : <span class="minute"></span></div>
                 <div class="date"><span class="month"></span>월 <span class="day"></span>일 <span class="week"></span>요일

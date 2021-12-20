@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+  console.log($(".working_pentaWrap").offset().top);
+
   $.timeSystem = function () {
     var date = new Date();
     var month = ("0" + (1 + date.getMonth())).slice(-2);
@@ -63,15 +65,26 @@ $(document).ready(function () {
 
           if (($(this).offset().top <= bar_target_top)) /* 끝까지 드래그 시, */ {
             $(this).css({ "top": bar_height, "transition": "0.2s,easeOutQuad!important" });
+            
+              $(".header").removeClass("darkMode");
+              $(".home_bar").removeClass("darkMode");
+
+            $("section.app_open").removeClass("app_open").addClass("remove_app").fadeOut(200).show();
+            
             setTimeout(function () {
-              $(".draggable").css({ "transition": "none" });
-            }, 200);
+              $(".draggable_screen").css({ "transition": "none" });
+              $("section.remove_app").css({
+                width: "0%",
+                height: "0vh"
+              }).removeClass("remove_app");
+              
+            }, 400);
 
           }
           else {
             $(this).css({ "top": bar_height, "transition": "0.2s,easeOutQuad!important" });
             setTimeout(function () {
-              $(".draggable").css({ "transition": "none" });
+              $(".draggable_screen").css({ "transition": "none" });
             }, 200);
           }
 
@@ -80,7 +93,7 @@ $(document).ready(function () {
 
     );
 
-    $(".draggable").draggable(
+    $(".draggable_screen").draggable(
 
       {
         containment: ".dragWrap"
@@ -98,7 +111,7 @@ $(document).ready(function () {
             console.log($(this).offset().top);
             $(this).css({ "top": "100vh", "transition": "0.3s,easeOutQuad" });
             setTimeout(function () {
-              $(".draggable").css({ "transition": "none" });
+              $(".draggable_screen").css({ "transition": "none" });
             }, 300);
             return true;
 
@@ -110,7 +123,7 @@ $(document).ready(function () {
 
 
             $(".intro").addClass("intro_open");
-            $(".header").addClass("header_on");
+            $(".header").fadeIn();
             $(".intro__iconBox").addClass("intro_open");
 
             setTimeout(function () {
@@ -121,7 +134,60 @@ $(document).ready(function () {
         }
       }
     );
+
+    var future_dragTop=(w_h * 4 / -5);
+
+    /* future */
+    $(".future").draggable(
+
+      {
+        axis: "y"
+      },
+      {
+        scroll: false
+      },
+      {
+
+        stop: function (event, ui) {
+
+          //실패
+
+          
+          
+          if ($(this).offset().top < future_dragTop) {
+            
+            $(this).css({ "top": "-100vh", "transition": "0.3s,easeOutQuad" });
+            $(this).find(".future_handle").show();
+            $("section.app_open").removeClass("blur");
+            $(".header").fadeIn(300);
+            $(".intro").addClass("intro_open");
+            future_dragTop=(w_h * 4 / -5);
+            setTimeout(function () {
+              $(".future").css({ "transition": "0s" });
+            }, 300);
+            return true;
+
+            //droppable 객체에 들어갓을때
+
+          } else {
+            $(this).css({ "top": "0px", "transition": "0.3s,easeOutQuad" });
+            $(this).find(".future_handle").hide();
+            $("section.app_open").addClass("blur");
+            $(".header").fadeOut(300);
+            $(".intro").removeClass("intro_open");
+            setTimeout(function () {
+              $(".future").css({ "transition": "0s" });
+            }, 300);
+            future_dragTop=(w_h * 1 / -9);
+            isRevert = true;
+          }
+
+        }
+      }
+    );
   });
+
+  
 
   /* battery */
   var battery = 101;
@@ -163,7 +229,9 @@ $(document).ready(function () {
       "top": y,
       "left": x
     });
+    $(cs).show();
     $(cs).addClass("app_open");
+    
     $(cs).animate({
       top: "0%",
       left: "0%",
@@ -191,6 +259,14 @@ $(document).ready(function () {
     $.icon_click(".netflix", x, y);
   });
 
+  $(".working_icon").click(function (e) {
+    x = e.pageX;
+    y = e.pageY;
+    $.icon_click(".working", x, y);
+    $(".header").addClass("darkMode");
+    $(".home_bar").addClass("darkMode");
+  });
+
   /* memo */
   $(".memo").find(".tab_item").click(function () {
     var tab_num = $(this).index();
@@ -211,7 +287,7 @@ $(document).ready(function () {
   var current_index = 0;
   var dup_prev=0;
   $(".slider_img_wrap:first-child").siblings().hide();
-
+  var desc =["졸업작품", "펜타브리드 입사","지금 이 일이 너무 재밌습니다"]
   $(".slider_img_wrap").click(function () {
     
 
@@ -226,7 +302,7 @@ $(document).ready(function () {
     }
     $(this).fadeOut(400);
     $(".slider_img_wrap").eq(current_index).fadeIn(400);
-    
+    $(".desc").text(desc[current_index]);
     
     setTimeout(function(){
       dup_prev=0;
@@ -234,7 +310,31 @@ $(document).ready(function () {
     dup_prev=1;
   });
 
+  /* working */
+  $('.working_samsungWrap .slick_wrap').slick({
+    infinite: false,
+    slidesToScroll: 1,
+    arrows: true,
+    variableWidth: true,
+    
 
+  });
+
+  $(".slick-prev").hide();
+  $(".slick-next").html("→");
+
+  $(".slick_wrap").mouseover(function(){
+    $(".slick-arrow").addClass("slick-hover");
+  });
+
+  $(".slick_wrap").mouseout(function(){
+    $(".slick-arrow").removeClass("slick-hover");
+  });
+
+  /* future */
+  $(".button_x").click(function(){
+    $(".future_slider_wrap").slideUp();
+  });
 
   /* 
   
